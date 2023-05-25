@@ -6,3 +6,9 @@ const PORT = 4001 || process.env.PORT;
 // require for making post requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running at localhost:${PORT}/`);
+    });
+  });  
